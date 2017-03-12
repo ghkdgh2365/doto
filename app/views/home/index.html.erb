@@ -1,0 +1,31 @@
+<h1>로또 번호 생성기<h1>
+<p>재미로 하세요</p>
+
+
+<div id="balls">
+    <div class="ball blue">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(5)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <div class="ball green">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(4)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <div class="ball purple">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(3)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <div class="ball red">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(2)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <div class="ball yellow">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(1)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <div class="ball black">        <!-- THIS ONE JUST MOVES RIGHT -->
+        <div><span><%= @random_number.at(0)%></span></div>  <!-- THIS ONE ROTATES -->
+    </div>
+    <!-- MORE BALLS HERE -->
+</div>
+
+
+<br>
+<br>
+<br>
+<%= @random_number %>

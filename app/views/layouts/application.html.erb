@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+  <style>
+  .ball{
+    position:absolute;
+    left:-100px;
+    width:90px;
+    height:90px;
+    background:#004E99;
+    border-radius:50%;
+    box-shadow: 20px 30px 30px -10px rgba(0,0,0,0.4);
+}
+.ball>div{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+.ball>div>span{
+    position:absolute;
+    left:23px;
+    top:14px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    text-align:center;
+    line-height:45px;
+    font-size:24px;
+    font-weight:bold;
+    background:#fff;
+}
+/* YOUR COLORS */
+.ball.blue{   background: radial-gradient(circle at 20px 20px, #0601FC, #001);}
+.ball.red{   background: radial-gradient(circle at 20px 20px, #FC0101, #001);}
+.ball.yellow{   background: radial-gradient(circle at 20px 20px, #F3FB0C, #001);}
+.ball.green{   background: radial-gradient(circle at 20px 20px, #0ECB14, #001);}
+.ball.black{   background: radial-gradient(circle at 20px 20px, #010100, #001);}
+.ball.purple{   background: radial-gradient(circle at 20px 20px, #8F1CE7, #001);}
+
+</style>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+
+<script>
+var $ball = $('#balls > div'),
+  diameter = $ball.height(),
+  perimeter = Math.PI * diameter,
+  n = $ball.length,
+  i = 0,
+  itv;
+
+itv = setInterval(function(){
+  if(i>n)clearInterval(itv);
+  rotateBall( 555-(diameter*i) );
+  i++;
+},1500);
+
+function rotateBall(distance) {
+  var degree = distance * 360 / perimeter;
+  $ball.eq(i).css({
+    transition: "2s",
+    transform: 'translateX('+ distance +'px)'
+  }).find('div').css({
+    transition: "2s",
+    transform: 'rotate('+ degree +'deg)'    
+  });
+}
+</script>
+</html>
